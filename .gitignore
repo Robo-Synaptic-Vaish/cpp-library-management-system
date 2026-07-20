@@ -1,1 +1,31 @@
+# Compiled executable files
+*.exe
+*.out
+*.app
 
+# Object files
+*.o
+*.obj
+
+# Build directories
+build/
+bin/
+Debug/
+Release/
+
+# VS Code settings
+.vscode/
+
+# CMake files (if added later)
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
