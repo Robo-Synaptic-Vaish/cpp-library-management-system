@@ -1,5 +1,10 @@
 #include<iostream>
+#include "../include/book.h"   //go read the book blueprint from book.h
 using namespace std;
+
+//Creating the library
+Book books[100];
+int bookCount = 0;
 
 void showMenu()
     {
@@ -20,6 +25,7 @@ void showMenu()
 int main()
 {
     int choice = 0;
+    int bookCount = 0;
         do 
         {
             showMenu();
@@ -28,6 +34,8 @@ int main()
             {
                 case 1:
                     cout<<"Add Book selected.\n\n";
+                    books[bookCount].AddBook();
+                    bookCount++;
                     break;
 
                 case 2:
