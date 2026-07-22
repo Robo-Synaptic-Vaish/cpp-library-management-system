@@ -17,11 +17,13 @@ class Book   //design of what a book should look like
     bool isAvailable;  //can someone borrow this book rn?
 
     public:
-    Book()       //constructor, automatically runs w/o us calling
+    Book();
 
-    void AddBook();    //this func belongs to book
-    void DisplayBook();   //both funcs. belong to same object
+    void AddBook();
+    void DisplayBook();
     bool SearchBook(string searchTitle);
+    bool BorrowBook(string searchTitle);
+    bool ReturnBook(string searchTitle);
 };
 
 #endif

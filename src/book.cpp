@@ -1,6 +1,3 @@
-#include<iostream>
-#include<string>
-using namespace std;
 #include "../include/book.h"
 
 Book::Book()
@@ -12,33 +9,25 @@ Book::Book()
 {
 }
 
-bool Book::SearchBook(stringTitle)
-{
-    return title == searchTitle;
-}
-
 void Book::AddBook()
 {
-    cout << "You selected Add Book\n";
+    cin.ignore();
 
     cout << "Enter book title: ";
-    cin.ignore();
     getline(cin, title);
-    cin >> title;
 
     cout << "Enter author: ";
     getline(cin, author);
-    cin >> author;
 
     cout << "Enter ISBN: ";
-    cin >> isbn;
+    getline(cin, isbn);
 
     cout << "Enter publication year: ";
     cin >> year;
 
     isAvailable = true;
 
-    cout << "Book added successfully!\n\n";
+    cout << "\nBook added successfully!\n";
 }
 
 void Book::DisplayBook()
@@ -49,7 +38,7 @@ void Book::DisplayBook()
     cout << "ISBN: " << isbn << endl;
     cout << "Year: " << year << endl;
 
-    if (isAvailable)
+    if(isAvailable)
     {
         cout << "Availability: Available\n";
     }
@@ -59,4 +48,45 @@ void Book::DisplayBook()
     }
 
     cout << endl;
+}
+
+bool Book::SearchBook(string searchTitle)
+{
+    return title == searchTitle;
+}
+
+bool Book::BorrowBook(string searchTitle)
+{
+    if(title == searchTitle)
+    {
+       if(isAvailable)
+       {
+        isAvailable = false;
+        return true;
+       }
+       else
+       {
+        cout<<"Book is already borrowed!\n";
+        return false;
+       }
+    }
+    return false;
+}
+
+bool Book::ReturnBook(string searchTitle)
+{
+    if(title == searchTitle)
+    {
+        if(!isAvailable)
+        {
+            isAvailable = true;
+            return true;
+        }
+        else
+        {
+            cout<<"Book is already available!\n";
+            return false;
+        }
+    }
+    return false;
 }
